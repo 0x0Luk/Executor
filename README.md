@@ -1,5 +1,7 @@
 # Executor
 
+Compilar: 
 gcc executor.c instruction.c main.c -o simulador
 
-./simulador arquivo.mem
+Executar:
+./simulador nome_do_arquivo.mem
