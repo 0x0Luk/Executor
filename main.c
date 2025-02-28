@@ -5,7 +5,6 @@
 #include "executor.h"
 #include "instruction.h"
 
-// Inverte os bytes em um endereço de memória
 void getRealAddress(void* value, size_t size) {
     uint8_t* bytes = (uint8_t*) value;
     for (size_t i = 0; i < size / 2; i++) {
@@ -15,7 +14,6 @@ void getRealAddress(void* value, size_t size) {
     }
 }
 
-//Verificação de arg
 int main(int argc, char** argv) {
     if (argc < 2) {
         fprintf(stderr, "Uso: %s <arquivo.mem>\n", argv[0]);
@@ -70,7 +68,6 @@ int main(int argc, char** argv) {
             [JZ]  = instructionJZ
         };
 
-        // Recupera o opcode da memória
         uint8_t opcode = executor->memory[executor->PC];
         if (opcode < sizeof(instructions) / sizeof(instructions[0]) && instructions[opcode]) {
             instructions[opcode](executor);
